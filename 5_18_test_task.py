@@ -1,5 +1,3 @@
-import time
-
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
@@ -110,18 +108,18 @@ checkout_product_1_name = driver.find_element(By.XPATH, "//a[@id='item_4_title_l
 checkout_product_1_name_value = checkout_product_1_name.text
 checkout_product_1_price = driver.find_element(By.XPATH, "(//div[@class='inventory_item_price'])[1]")
 checkout_product_1_price_value = checkout_product_1_price.text.replace('$', '')
-assert checkout_product_1_name_value == checkout_product_1_name_value
-assert checkout_product_1_price_value == checkout_product_1_price_value
+assert checkout_product_1_name_value == cart_product_1_name_value
+assert checkout_product_1_price_value == cart_product_1_price_value
 print("Passed\n")
 
 """---Product 2---"""
-print("Trying get checkout product 1 data and compare with cart")
-checkout_product_2_name = driver.find_element(By.XPATH, "//a[@id='item_4_title_link']")
+print("Trying get checkout product 2 data and compare with cart")
+checkout_product_2_name = driver.find_element(By.XPATH, "//a[@id='item_0_title_link']")
 checkout_product_2_name_value = checkout_product_2_name.text
 checkout_product_2_price = driver.find_element(By.XPATH, "(//div[@class='inventory_item_price'])[2]")
 checkout_product_2_price_value = checkout_product_2_price.text.replace('$', '')
-assert checkout_product_2_name_value == checkout_product_2_name_value
-assert checkout_product_2_price_value == checkout_product_2_price_value
+assert checkout_product_2_name_value == cart_product_2_name_value
+assert checkout_product_2_price_value == cart_product_2_price_value
 print("Passed\n")
 
 """--------------Check the correctness of the price--------------------"""
