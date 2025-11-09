@@ -36,7 +36,7 @@ print("Passed\n")
 """---Product 1---"""
 print("Trying get catalog product 1 name and price")
 catalog_product_1_name = driver.find_element(By.XPATH, "//a[@id='item_4_title_link']")
-catalog_product_1_name_value = catalog_product_1_name
+catalog_product_1_name_value = catalog_product_1_name.text
 catalog_product_1_price = driver.find_element(By.XPATH, "(//div[@class='inventory_item_price'])[1]")
 catalog_product_1_price_value = catalog_product_1_price.text.replace('$', '')
 print(f"Passed. Name = {catalog_product_1_name_value}; Price = {catalog_product_1_price_value}$.\n")
@@ -44,7 +44,7 @@ print(f"Passed. Name = {catalog_product_1_name_value}; Price = {catalog_product_
 """---Product 2---"""
 print("Trying get catalog product 2 name and price")
 catalog_product_2_name = driver.find_element(By.XPATH, "//a[@id='item_0_title_link']")
-catalog_product_2_name_value = catalog_product_2_name.text.replace('$', '')
+catalog_product_2_name_value = catalog_product_2_name.text
 catalog_product_2_price = driver.find_element(By.XPATH, "(//div[@class='inventory_item_price'])[2]")
 catalog_product_2_price_value = catalog_product_2_price.text.replace('$', '')
 print(f"Passed. Name = {catalog_product_2_name_value}; Price = {catalog_product_2_price_value}$.\n")
@@ -72,9 +72,9 @@ cart_button.click()
 """---Product 1---"""
 print("Trying get cart product 1 data and compare with catalog")
 cart_product_1_name = driver.find_element(By.XPATH, "//a[@id='item_4_title_link']")
-cart_product_1_name_value = cart_product_1_name.text.replace('$', '')
+cart_product_1_name_value = cart_product_1_name.text
 cart_product_1_price = driver.find_element(By.XPATH, "(//div[@class='inventory_item_price'])[1]")
-cart_product_1_price_value = cart_product_1_price.text
+cart_product_1_price_value = cart_product_1_price.text.replace('$', '')
 assert cart_product_1_name_value == catalog_product_1_name_value
 assert cart_product_1_price_value == catalog_product_1_price_value
 print("Passed\n")
@@ -82,7 +82,7 @@ print("Passed\n")
 """---Product 2---"""
 print("Trying get cart product 2 data and compare with catalog")
 cart_product_2_name = driver.find_element(By.XPATH, "//a[@id='item_0_title_link']")
-cart_product_2_name_value = cart_product_2_name.text.replace('$', '')
+cart_product_2_name_value = cart_product_2_name.text
 cart_product_2_price = driver.find_element(By.XPATH, "(//div[@class='inventory_item_price'])[2]")
 cart_product_2_price_value = cart_product_2_price.text.replace('$', '')
 assert cart_product_2_name_value == catalog_product_2_name_value
@@ -92,6 +92,6 @@ print("Passed\n")
 
 """--------------Sleep and close browser--------------------"""
 
-time.sleep(0)
+#time.sleep(0)
 print("All tests passed. Closing browser")
 driver.close()
